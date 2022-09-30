@@ -28,6 +28,8 @@ const SignUp = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
+
+
 const SignIn = styled.button`
   font-size: 1.2rem;
   border: none;
@@ -35,7 +37,6 @@ const SignIn = styled.button`
   margin: 0px 10px;
   border-radius: 5px;
   cursor: pointer;
-
 `;
 
 // AVATAR
@@ -44,7 +45,7 @@ const AvatarCont = styled.div`
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid red;
+  border: 2px solid ;
 `;
 
 const AvatarImg = styled.img`
@@ -53,8 +54,9 @@ const AvatarImg = styled.img`
   height: 100%;
 `;
 
+
 const Navbar = () => {
-   // eslint-disable-next-line
+  // eslint-disable-next-line
   const [auth, setAuth] = useState(true);
   return (
     <Container>
@@ -62,7 +64,7 @@ const Navbar = () => {
       <Auth>
         {auth ? (
           <AvatarCont>
-            <AvatarImg src="https://images.unsplash.com/photo-1664293272875-2cfa64e687c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60" />
+            <AvatarImg src="https://images.unsplash.com/photo-1664393603138-a07aa623a582?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" />
           </AvatarCont>
         ) : (
           <SignIn>SignIn</SignIn>
