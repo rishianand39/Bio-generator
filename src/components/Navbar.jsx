@@ -4,7 +4,7 @@ import styled from "styled-components";
 // STYLED COMPONENTS
 const Container = styled.div`
   background-color: #525252;
-  padding: 10px 10rem;
+  padding: 5px 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,19 +41,28 @@ const SignIn = styled.button`
 
 // AVATAR
 const AvatarCont = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid ;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const AvatarImg = styled.img`
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 2px solid #c41b8b66 ;
 `;
-
+const Name=styled.span`
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+`
 
 const Navbar = () => {
   // eslint-disable-next-line
@@ -65,6 +74,7 @@ const Navbar = () => {
         {auth ? (
           <AvatarCont>
             <AvatarImg src="https://images.unsplash.com/photo-1664393603138-a07aa623a582?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80" />
+            <Name>Demo User</Name>
           </AvatarCont>
         ) : (
           <SignIn>SignIn</SignIn>
