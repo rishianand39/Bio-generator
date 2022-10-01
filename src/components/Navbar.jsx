@@ -4,7 +4,7 @@ import styled from "styled-components";
 // STYLED COMPONENTS
 const Container = styled.div`
   background-color: #525252;
-  padding: 5px 10rem;
+  padding: 5px 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,8 +51,8 @@ const AvatarCont = styled.div`
 
 const AvatarImg = styled.img`
   object-fit: cover;
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
   border: 2px solid #c41b8b66 ;
 `;
