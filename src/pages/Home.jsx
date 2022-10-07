@@ -111,17 +111,38 @@ const Home = () => {
     ReligiousBackground: 0,
     ReasonForMeeting: 0,
   });
+  const [inputData, setInputData] = useState({
+    Name: data.Name[indexes["Name"]],
+    Location: data.Location[indexes["Location"]],
+    School: data.School[indexes["School"]],
+    Major: data.Major[indexes["Major"]],
+    Occupation: data.Occupation[indexes["Occupation"]],
+    ReligiousBackground:data.ReligiousBackground[indexes["ReligiousBackground"]],
+    ReasonForMeeting: data.ReasonForMeeting[indexes["ReasonForMeeting"]],
+  });
 
   // RANDOM BUTTON LOGIC HERE
   const handleRandomBtn = (a, b) => {
+    console.log(a, indexes[a]);
     setIndexes({
       ...indexes,
-      [a]: indexes[a] === data[a].length - 1 ? 0 : ++indexes[a],
+      [a]:indexes[a]===data[a].length-1?0: ++indexes[a],
+    });
+    setInputData({
+      ...inputData,
+      [a]: data[a][indexes[a]],
     });
   };
 
+
   //  HANDLING INPUT BOX HERE
-  const handleInput = () => {};
+  const handleInput = (e) => {
+    setInputData({
+      ...inputData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleGender = () => {};
 
   return (
     <Container>
@@ -134,14 +155,14 @@ const Home = () => {
           <Input
             name="Name"
             id="name"
-            value={data.Name[indexes["Name"]]}
+            value={inputData["Name"]}
             onChange={handleInput}
           />
           {/* GENDER */}
           <Label>Gender</Label>
-          <Select onChange={handleInput}>
-            <Options>Male</Options>
-            <Options>Female</Options>
+          <Select name="Gender" onChange={handleGender}>
+            <Options value="male">Male</Options>
+            <Options value="female">Female</Options>
           </Select>
           <Btn onClick={() => handleRandomBtn("Name")}>Random Name</Btn>
         </RowWrapper>
@@ -151,7 +172,7 @@ const Home = () => {
           <Label htmlFor="location">Location</Label>
           <Input
             name="Location"
-            value={data.Location[indexes["Location"]]}
+            value={inputData["Location"]}
             onChange={handleInput}
           />
           <Btn onClick={() => handleRandomBtn("Location")}>Random Location</Btn>
@@ -162,7 +183,7 @@ const Home = () => {
           <Label htmlFor="school">School</Label>
           <Input
             name="School"
-            value={data.School[indexes["School"]]}
+            value={inputData["School"]}
             onChange={handleInput}
           />
           <Btn onClick={() => handleRandomBtn("School")}>Random School</Btn>
@@ -172,7 +193,7 @@ const Home = () => {
           <Input
             name="Major"
             id="major"
-            value={data.Major[indexes["Major"]]}
+            value={inputData["Major"]}
             onChange={handleInput}
           />
           <Btn onClick={() => handleRandomBtn("Major")}>Random Major</Btn>
@@ -183,7 +204,7 @@ const Home = () => {
           <Label htmlFor="occupation">Occupation</Label>
           <Input
             name="Occupation"
-            value={data.Occupation[indexes["Occupation"]]}
+            value={inputData["Occupation"]}
             onChange={handleInput}
           />
           <Btn onClick={() => handleRandomBtn("Occupation")}>
@@ -196,7 +217,7 @@ const Home = () => {
           <Label htmlFor="religion">Religious Background</Label>
           <TextArea
             name="ReligiousBackground"
-            value={data.ReligiousBackground[indexes["ReligiousBackground"]]}
+            value={inputData["ReligiousBackground"]}
             onChange={handleInput}
           />
           <Btn onClick={() => handleRandomBtn("ReligiousBackground")}>
@@ -209,7 +230,7 @@ const Home = () => {
           <Label htmlFor="religion">Reason for metting with missionaries</Label>
           <TextArea
             name="ReasonForMeeting"
-            value={data.ReasonForMeeting[indexes["ReasonForMeeting"]]}
+            value={inputData["ReasonForMeeting"]}
             onChange={handleInput}
           />
           <Btn
@@ -262,13 +283,13 @@ const Home = () => {
       <Wrapper flex="4">
         <RowWrapper heading="heading">Results</RowWrapper>
         <Result>
-          {data.Name[indexes.Name]} is from &nbsp;
-          {data.Location[indexes.Location]}. He is studying to be a &nbsp;
-          {data.Major[indexes.Major]} at&nbsp;.
-          {data.School[indexes.School]}. He currently works as a &nbsp;
-          {data.Occupation[indexes.Occupation]}&nbsp;. He was raised&nbsp;
-          {data.ReligiousBackground[indexes.ReligiousBackground]}. He&nbsp;
-          {data.ReasonForMeeting[indexes.ReasonForMeeting]}.
+          {inputData["Name"]} is from &nbsp;
+          {inputData["Location"]}. He is studying to be a &nbsp;
+          {inputData["Major"]} at&nbsp;.
+          {inputData["School"]}. He currently works as a &nbsp;
+          {inputData["Occupation"]}&nbsp;. He was raised&nbsp;
+          {inputData["ReligiousBackground"]}. He&nbsp;
+          {inputData["ReasonForMeeting"]}.
         </Result>
       </Wrapper>
     </Container>
